@@ -13,7 +13,7 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    <body>
+    <body class="flex flex-col h-screen">
         {% block navbar %}
             <div class="p-3 bg-gray-800 text-gray-200 grid grid-flow-col flex items-center">
           
@@ -25,11 +25,11 @@
 
             </div>
         {% endblock %}
-
+        <div class="flex-grow">
         {% block content %}
         
         {% endblock %}
-
+        </div>
         {% block footer %}
             <div class="bg-gray-800 text-gray-200 flex justify-center p-2">
                 ©GSB-SYMFONY 2021 | TILLIER MATHIEU
