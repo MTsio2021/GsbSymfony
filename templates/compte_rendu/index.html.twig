@@ -1,71 +1,92 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des comptes-rendus{% endblock %}
+{% block title %}Liste des comptes-rendus
+{% endblock %}
 
 {% block content %}
 
-<div class="bg-gray-300 m-10 border-2 border-gray-500">
+	<div class="bg-gray-300 m-10 border-2 border-gray-500">
 
-  <div class="grid grid-cols-8 gap-10">
-    <!-- 1 -->
-    <div class="col-span-2 m-5">
-        <form action="" class="grid grid-flow-row gap-5">
-            <div>
-                <label>Sélectionner visiteur</label>
-                <select class="w-full" name="" id="">
+		<div
+			class="grid grid-cols-8 gap-10">
+			<!-- 1 -->
+			<div class="col-span-2 m-5">
+				<form action="" class="grid grid-flow-row gap-5">
+					<div>
+						<label>Sélectionner visiteur</label>
+						<select class="w-full" name="" id=""></select>
+					</div>
+					<div>
+						<label>Mois</label>
+						<select class="w-full" name="" id=""></select>
+					</div>
+					<div>
+						<label>Année</label>
+						<select class="w-full" name="" id=""></select>
+					</div>
+					<div>
+						<button class="transition duration-500 bg-green-500 text-white w-full rounded-md hover:bg-green-600" type="submit">Afficher</button>
+					</div>
+				</form>
+			</div>
+			<!-- 2 -->
+			<div class="col-span-6 m-5">
 
-                </select>
-            </div>
-            <div>
-                <label>Mois</label>
-                <select class="w-full" name="" id="">
+				<div class="bg-white border-2 border-gray-400">
 
-                </select>
-            </div>
-            <div>
-                <label>Année</label>
-                <select class="w-full" name="" id="">
+					<div class="m-3">
+						<table class="table-auto w-full">
 
-                </select>
-            </div>
-            <div>
-                <button class="transition duration-500 bg-green-500 text-white w-full rounded-md hover:bg-green-600" type="submit">Afficher</button>
-            </div>
-        </form>
-    </div>
-    <!-- 2 -->
-    <div class="col-span-6 m-5">
+							<tr class="">
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Praticien</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Ville</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Date Visite</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Date Rédaction</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Lu</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Consulter</p>
+								</td>
+							</tr>
 
-        <div class="bg-white border-2 border-gray-400">
-            
-            <div class="m-3">
-                <table class="table-auto w-full">
+							<tr
+								class="">
+								{# foreach #}
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Praticien</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Ville</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Date Visite</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Date Rédaction</p>
+								</td>
+								<td class="border border-black p-1 ">
+									<p class="flex justify-center">Lu</p>
+								</td>
+								<td class="border border-black p-1">
+									<a class="transition duration-500 bg-indigo-500 text-white flex justify-center rounded-md hover:bg-indigo-600 m-1 p-1" href="/compterendu/show">Consulter</a>
+								</td>
+							</tr>
 
-                    <tr class="">
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Praticien</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Ville</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Date Visite</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Date Rédaction</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Lu</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Consulter</p></td>
-                    </tr>
+						</table>
+					</div>
+				</div>
 
-                    <tr class="">
-                        {# foreach #}
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Praticien</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Ville</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Date Visite</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Date Rédaction</p></td>
-                        <td class="border border-black p-1 " ><p class="flex justify-center">Lu</p></td>
-                        <td class="border border-black p-1" ><a class="transition duration-500 bg-indigo-500 text-white flex justify-center rounded-md hover:bg-indigo-600 m-1 p-1" href="/compterendu/show">Consulter</a></td>
-                    </tr>
+			</div>
+		</div>
 
-                </table>
-            </div>
-        </div>
-
-    </div>
-  </div>
-
-</div>
+	</div>
 {% endblock %}

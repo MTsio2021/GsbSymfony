@@ -1,43 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Connexion
+{% endblock %}
 
 {% block navbar %}{% endblock %}
 {% block content %}
 
 
-    <div class="flex justify-center m-12 h-36 w-auto">
-        <img src="{{ asset('/images/gsblogo.png')}}" alt="">
-    </div>
+	<div class="flex justify-center m-12 h-36 w-auto">
+		<img src="{{ asset('/images/gsblogo.png')}}" alt="">
+	</div>
 
-    <div class="grid grid-flow-rows w-1/2 mx-auto my-auto flex justify-center items-center bg-gray-300 gap-3 mt-12 p-5 rounded-lg max-w-screen-md">
-    
-        <h1 class="text-xl flex justify-center">Connexion</h1>
+	<div class="grid grid-flow-rows w-1/2 mx-auto my-auto flex justify-center items-center bg-gray-300 gap-3 mt-12 p-5 rounded-lg max-w-screen-md">
 
-        <div>
-            
-            <form action="{{ path('login') }}" method="POST">
+		<h1 class="text-xl flex justify-center">Connexion</h1>
 
-                <div class="grid grid-flow-cols auto-cols-auto gap-2">
-                    <input class="m-2 p-2 rounded-md" type="text" name="_username" value="{{ last_username }}" placeholder="Pseudo">
-                    <input class="m-2 p-2 rounded-md" type="password" name="_password" placeholder="Mot de passe">
-                </div>
+		<div>
 
-                <div class="flex justify-center" >
-                    <button class="transition duration-500 m-2 w-full bg-green-400 text-white rounded-md hover:bg-green-500" type="submit">Connexion</button>
-                </div>
-               
-            </form> 
-            
-        </div>
-        {% if error %}
-                
-            <span class="text-red-500 flex justify-center">Identifiants incorrects</span>
-           
-        {% endif %}
-    </div>
+			<form action="{{ path('login') }}" method="POST">
 
-    
+				<div class="grid grid-flow-cols auto-cols-auto gap-2">
+					<input class="m-2 p-2 rounded-md" type="text" name="_username" value="{{ last_username }}" placeholder="Pseudo">
+					<input class="m-2 p-2 rounded-md" type="password" name="_password" placeholder="Mot de passe">
+				</div>
+
+				<div class="flex justify-center">
+					<button class="transition duration-500 m-2 w-full bg-green-400 text-white rounded-md hover:bg-green-500" type="submit">Connexion</button>
+				</div>
+
+			</form>
+
+		</div>
+		{% if error %}
+
+			<span class="text-red-500 flex justify-center">Identifiants incorrects</span>
+
+		{% endif %}
+	</div>
+
 
 {% endblock %}
 {% block footer %}{% endblock %}

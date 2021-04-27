@@ -1,22 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
 
 {% block navbar %}{% endblock %}
 {% block content %}
 
 
-<div class="flex justify-center m-12 h-36 w-auto">
-    <img src="{{ asset('/images/gsblogo.png')}}" alt="">
-</div>
-<div class="w-1/2 mx-auto flex justify-center gap-2 mt-12">
-    <p class="text-2xl">Bienvenue {{ delegue }} !</p>
-</div>
-<div class="grid grid-flow-rows w-1/2 mx-auto flex justify-center gap-2 mt-24">
-    <a class="flex justify-center" href="{{ path('compte_rendu') }}"><button class="transition duration-500 p-2 rounded-md text-white bg-blue-500 w-full hover:bg-blue-600">Consulter les comptes-rendus</button></a>
-    <a class="flex justify-center" href="{{ path('praticien') }}"><button class="transition duration-500 p-2 rounded-md text-white bg-blue-500 w-full hover:bg-blue-600">Consulter liste des praticiens</button></a>
-    <a class="flex justify-center" href="{{ path('logout') }}"><button class="transition duration-500 p-2 rounded-md text-white bg-red-500 w-full hover:bg-red-600">Déconnexion</button></a>
-</div>
+	<div class="flex justify-center m-12 h-36 w-auto">
+		<img src="{{ asset('/images/gsblogo.png')}}" alt="">
+	</div>
+	<div class="w-1/2 mx-auto flex justify-center gap-2 mt-12">
+		<p class="text-2xl">Bienvenue
+			{{ delegue }}
+			!</p>
+	</div>
+	<div class="grid grid-flow-rows w-1/2 mx-auto flex justify-center gap-2 mt-24">
+		<a class="flex justify-center" href="{{ path('compte_rendu') }}">
+			<button class="transition duration-500 p-2 rounded-md text-white bg-blue-500 w-full hover:bg-blue-600">Consulter les comptes-rendus</button>
+		</a>
+		<a class="flex justify-center" href="{{ path('praticien') }}">
+			<button class="transition duration-500 p-2 rounded-md text-white bg-blue-500 w-full hover:bg-blue-600">Consulter liste des praticiens</button>
+		</a>
+		<a class="flex justify-center" href="{{ path('logout') }}">
+			<button class="transition duration-500 p-2 rounded-md text-white bg-red-500 w-full hover:bg-red-600">Déconnexion</button>
+		</a>
+	</div>
 
 {% endblock %}
 {% block footer %}{% endblock %}
