@@ -19,35 +19,18 @@ class Delegue implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=25)
-     */
-    private $login;
-
-    /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=25)
      */
     private $username;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getLogin(): ?string
-    {
-        return $this->login;
-    }
-
-    public function setLogin(string $login): self
-    {
-        $this->login = $login;
-
-        return $this;
     }
 
     public function getPassword(): ?string

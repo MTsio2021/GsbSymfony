@@ -8,38 +8,44 @@
 	<div class="bg-gray-300 m-10 border-2 border-gray-500">
 
 		<div class="grid grid-cols-8">
-			<p class="p-2">
+			<p class="p-3">
 				Trier par :
 			</p>
 
 			<div class="flex items-center gap-5 col-span-7">
-				<a class="transition duration-500 bg-blue-600 hover:bg-blue-700 text-gray-200 p-1 mr-3 flex justify-center rounded-md w-full" href="">Confiance</a>
+				<a class="transition duration-500 bg-blue-600 hover:bg-blue-700 text-gray-200 p-1 mr-3 flex justify-center rounded-md w-full" href="{{ path('praticienconf') }}">Confiance</a>
 				<a class="transition duration-500 bg-blue-600 hover:bg-blue-700 text-gray-200 p-1 mr-3 flex justify-center rounded-md w-full" href="">Temps écoulé</a>
-				<a class="transition duration-500 bg-blue-600 hover:bg-blue-700 text-gray-200 p-1 mr-3 flex justify-center rounded-md w-full" href="">Notoriété</a>
+				<a class="transition duration-500 bg-blue-600 hover:bg-blue-700 text-gray-200 p-1 mr-3 flex justify-center rounded-md w-full" href="{{ path('praticiennot') }}">Notoriété</a>
+				<a class="transition duration-500 bg-red-600 hover:bg-red-700 text-gray-200 p-1 mr-3 flex justify-center rounded-md w-full" href="{{ path('praticien') }}">Annuler le trie</a>
 			</div>
 		</div>
 
 		<div
-			class="grid grid-cols-2 m-5 bg-white p-2 border-2 border-gray-400">
+			class="grid grid-cols-2 m-2 bg-white p-2 border-2 border-gray-400">
 			<!-- 1 -->
 			<div>
-				<div class="flex justify-center border-b border-t border-r border-gray-700">
+				<div class="flex justify-center border-b border-t border-r border-gray-700 bg-gray-300">
 					<p>Nom</p>
 				</div>
 				<!-- foreach -->
-				<div class="flex justify-center border-b border-r border-gray-700">
-					<p>Nom</p>
-				</div>
+				{% for praticien in praticiens %}
+					<div class="flex justify-center border-b border-r border-gray-700">
+						<p>{{praticien.nom}}
+							{{ praticien.prenom }}</p>
+					</div>
+				{% endfor %}
 			</div>
 			<!-- 2 -->
 			<div>
-				<div class="flex justify-center border-b border-t border-gray-700">
+				<div class="flex justify-center border-b border-t border-gray-700 bg-gray-300">
 					<p>Ville</p>
 				</div>
 				<!-- foreach -->
-				<div class="flex justify-center border-b border-gray-700">
-					<p>Ville</p>
-				</div>
+				{% for praticien in praticiens %}
+					<div class="flex justify-center border-b border-gray-700">
+						<p>{{praticien.ville}}</p>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
 

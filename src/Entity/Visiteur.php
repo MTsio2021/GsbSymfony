@@ -50,7 +50,7 @@ class Visiteur
     private $login;
 
     /**
-     * @ORM\Column(type="string", length=30, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $mdp;
 
@@ -199,5 +199,10 @@ class Visiteur
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom() .' '. $this->getPrenom();
     }
 }

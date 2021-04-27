@@ -60,6 +60,11 @@ class Praticien
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $coefConfiance;
+
     public function __construct()
     {
         $this->visiteur = new ArrayCollection();
@@ -180,6 +185,18 @@ class Praticien
     public function setType(?TypePraticien $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getCoefConfiance(): ?float
+    {
+        return $this->coefConfiance;
+    }
+
+    public function setCoefConfiance(float $coefConfiance): self
+    {
+        $this->coefConfiance = $coefConfiance;
 
         return $this;
     }

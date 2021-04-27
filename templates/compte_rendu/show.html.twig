@@ -10,30 +10,33 @@
 			<div class="m-5">
 				<h5 class="text-xl text-indigo-500 flex justify-center">
 					Compte rendu num :
+					{{ rapport.id }}
 				</h5>
 				<p>
-					Nom :
+					<span class="text-indigo-500">Nom :
+					</span>
+					{{ rapport.visiteur.nom }}
 				</p>
 				<p>
-					Ville :
+					<span class="text-indigo-500">Ville :</span>
+					{{ rapport.visiteur.praticien.ville }}
 				</p>
 				<p>
-					Date Visite :
+					<span class="text-indigo-500">Date Visite :</span>
+					{{ rapport.datevisite }}
 				</p>
 				<p>
-					Date Rédaction :
+					<span class="text-indigo-500">Date Rédaction :</span>
+					{{ rapport.daterapport }}
 				</p>
 				<p>
-					Coefficients de confiance :
+					<span class="text-indigo-500">Coefficients de confiance :</span>
+					{{ rapport.visiteur.praticien.coefnotoriete }}
 				</p>
 				<p>
-					Motifs :
-				</p>
-				<p>
-					Bilan :
-				</p>
-				<p>
-					Matricule :
+					<span class="text-indigo-500">Bilan :</span>
+					<br>
+					{{ rapport.bilan }}
 				</p>
 			</div>
 		</div>
