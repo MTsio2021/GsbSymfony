@@ -42,9 +42,9 @@ class AppFixtures extends Fixture
         }
 
         $praticien = array();
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $praticien[$i] = new Praticien();
-            $praticien[$i]->setType($typepraticien[$i % 3]);
+            $praticien[$i]->setType($typepraticien[$i % 10]);
             $praticien[$i]->setNom($faker->lastName);
             $praticien[$i]->setPrenom($faker->firstName);
             $praticien[$i]->setAdresse($faker->address);
@@ -57,9 +57,9 @@ class AppFixtures extends Fixture
         }
 
         $visiteur = array();
-        for ($i = 0; $i <10; $i++){
+        for ($i = 0; $i <40; $i++){
             $visiteur[$i] = new Visiteur();
-            $visiteur[$i]->setPraticien($praticien[$i % 3]);
+            $visiteur[$i]->setPraticien($praticien[$i % 20]);
             $visiteur[$i]->setNom($faker->lastName);
             $visiteur[$i]->setPrenom($faker->firstName);
             $visiteur[$i]->setAdresse($faker->address);
@@ -74,7 +74,7 @@ class AppFixtures extends Fixture
         $rapportvisite = array();
         for ($i = 0; $i <100; $i++){
             $rapportvisite[$i] = new RapportVisite();
-            $rapportvisite[$i]->setVisiteur($visiteur[$i % 3]);
+            $rapportvisite[$i]->setVisiteur($visiteur[$i % 40]);
             $rapportvisite[$i]->setBilan($faker->paragraph());
             $rapportvisite[$i]->setDateVisite($faker->date($format = 'Y-m-d', $max = 'now'));
             $rapportvisite[$i]->setDateRapport($faker->date($format = 'Y-m-d', $max = 'now'));

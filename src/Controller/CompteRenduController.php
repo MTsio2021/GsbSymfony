@@ -32,10 +32,21 @@ class CompteRenduController extends AbstractController
     /**
      * @Route("/compterendu", name="compte_rendu")
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
+        if ($request->get('visiteur') || $request->get('mois') || $request->get('annee')) {
 
-        $rapports = $this->repositoryrapport->findAll();
+            $mois = strval($request->get('mois'));
+            $annee = strval($request->get('annee'));
+            $visiteur = $request->get('visiteur');
+            /* $rapports = $this->repositoryrapport->findBy(['visiteur' => $request->get('visiteur'), 'dateRapport' => "$annee-$mois-02"]); */
+            $rapports = $this->repositoryrapport->findByDate($visiteur, $annee, $mois);
+        }
+        else {
+            $rapports = $this->repositoryrapport->findAll();
+        }
+
+        
         $visiteurs = $this->repositoryvisiteur->findAll();
         return $this->render('compte_rendu/index.html.twig', [
             'rapports' => $rapports, 'visiteurs' => $visiteurs

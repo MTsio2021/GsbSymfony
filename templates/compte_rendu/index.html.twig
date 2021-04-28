@@ -26,14 +26,14 @@
 
 						<select class="w-full" name="mois" id="">
 							{% for i in 1..12 %}
-								<option value="{{ i }}">{{ i }}</option>
+								<option {% if i < 10 %} value="0{{ i }}"{% else %} value="{{ i }}" {% endif %}>{{ i }}</option>
 							{% endfor %}
 						</select>
 					</div>
 					<div>
 						<label>Année</label>
 						<select class="w-full" name="annee" id="">
-							{% for i in 1950..2021 %}
+							{% for i in 2021..1950 %}
 								<option value="{{ i }}">{{ i }}</option>
 							{% endfor %}
 						</select>
@@ -71,8 +71,10 @@
 									<p class="flex justify-center">Consulter</p>
 								</td>
 							</tr>
+
 							{% for rapport in rapports %}
 								<tr class="">
+
 
 									<td class="border border-black p-1 ">
 										<p class="flex justify-center">{{ rapport.visiteur.praticien.id}}</p>

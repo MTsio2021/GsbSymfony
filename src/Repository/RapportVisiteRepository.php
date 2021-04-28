@@ -22,19 +22,19 @@ class RapportVisiteRepository extends ServiceEntityRepository
     // /**
     //  * @return RapportVisite[] Returns an array of RapportVisite objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByDate($visiteur, $annee,$mois)
     {
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('r.dateRapport LIKE :date')
+            ->andWhere('IDENTITY(r.visiteur) LIKE :visiteur')
+            ->setParameter('date', $annee.'-'.$mois.'-%')
+            ->setParameter('visiteur', $visiteur)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?RapportVisite
