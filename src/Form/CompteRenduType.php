@@ -15,8 +15,8 @@ class CompteRenduType extends AbstractType
             
             ->add('dateVisite')
             ->add('dateRapport')
-            ->add('etat')
             ->add('visiteur')
+            ->add('etat')
             ->add('bilan')
         ;
     }
@@ -25,6 +25,7 @@ class CompteRenduType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => RapportVisite::class,
+            'translation_domain'=> 'forms'
         ]);
     }
 }

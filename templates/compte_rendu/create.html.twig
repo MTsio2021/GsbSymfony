@@ -7,8 +7,14 @@
 	<div class="flex justify-center p-20 grid grid-flow-row gap-5">
 		<div class="bg-gray-300 p-5">
 			{{ form_start(form)}}
-			{{ form_rest(form)}}
+			{{ form_widget(form)}}
+			<button class=" transition duration-500 bg-green-500 hover:bg-green-600 w-full rounded-md text-white p-1">Enregistrer</button>
 			{{ form_end(form)}}
 		</div>
+		{% for message in app.flashes('success') %}
+			<div class="bg-green-300 p-2 text-green-700 rounded-md">
+				{{ message }}
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}

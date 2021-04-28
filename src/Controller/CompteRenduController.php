@@ -7,7 +7,10 @@ use App\Entity\RapportVisite;
 use App\Form\CompteRenduType;
 use App\Repository\RapportVisiteRepository;
 use App\Repository\VisiteurRepository;
+
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,10 +20,12 @@ class CompteRenduController extends AbstractController
     private $repositoryrapport;
     private $repositoryvisiteur;
 
-    public function __construct(RapportVisiteRepository $repositoryrapport, VisiteurRepository $repositoryvisiteur)
+    public function __construct(RapportVisiteRepository $repositoryrapport, VisiteurRepository $repositoryvisiteur, EntityManagerInterface $em)
     {
         $this->repositoryrapport = $repositoryrapport;
         $this->repositoryvisiteur = $repositoryvisiteur;
+        $this->em = $em;
+
 
     }
 
@@ -37,10 +42,12 @@ class CompteRenduController extends AbstractController
         ]);
     }
     /**
-     * @Route("/compterendu/show/{id}", name="compte_rendu_show")
+     * @Route("/compterendu/show/{id}", name="compte_rendu_show_{id}")
      */
     public function show(RapportVisite $rapport): Response
     {   
+        $rapport->setEtat(true);
+        $this->em->flush();
         $rapport = $this->repositoryrapport->find($rapport);
         return $this->render('compte_rendu/show.html.twig', [
             'rapport' => $rapport,
@@ -50,10 +57,20 @@ class CompteRenduController extends AbstractController
     /**
      * @Route("/compterendu/create", name="compte_rendu_create")
      */
-    public function create(): Response
+    public function create(Request $request): Response
     {   
-        $form = $this->createForm(CompteRenduType::class);
+        $rapport = new RapportVisite();
+        $form = $this->createForm(CompteRenduType::class, $rapport);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $this->em->persist($rapport);
+            $this->em->flush();
+            $this->addFlash('success', 'Compte rendu enregistré avec succès');
+            return $this->redirectToRoute('compte_rendu_create');
+        }
         return $this->render('compte_rendu/create.html.twig', [
+            'rapport' => $rapport,
             'form' => $form->createView()
         ]);
     }
