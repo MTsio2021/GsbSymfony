@@ -28,9 +28,18 @@ class AppFixtures extends Fixture
         $delegue->setPassword($this->encoder->encodePassword($delegue, '0000'));
         $manager->persist($delegue);
 
-        $faker = Factory::create('fr_FR');
-        // on crée 4 auteurs avec noms et prénoms "aléatoires" en français
+        $deleguetest = new Delegue();
+        $deleguetest->setUsername('dele1');
+        $deleguetest->setPassword($this->encoder->encodePassword($deleguetest, '1234'));
+        $manager->persist($deleguetest);
 
+        $deleguetest2 = new Delegue();
+        $deleguetest2->setUsername('dele2');
+        $deleguetest2->setPassword($this->encoder->encodePassword($deleguetest2, '4321'));
+        $manager->persist($deleguetest2);
+
+        $faker = Factory::create('fr_FR');
+       
         $typepraticien = array();
 
         for ($i = 0; $i < 10; $i++) {
